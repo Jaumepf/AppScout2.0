@@ -16,222 +16,274 @@ warnings.filterwarnings("ignore")
 
 pesos_roles = {
 
-    "Portero": {
-        "Goles_evitados_%":         0.20,
-        "Porterias_cero_%":         0.15,
-        "Goles_encajados/90":       0.12,
-        "Paradas/90":               0.12,
-        "Paradas_area/90":          0.10,
-        "Salidas/90":               0.08,
-        "Error_disparo/90":         0.08,
-        "Pases_largos/90":          0.07,
-        "Precision_pases_%":        0.04,
-        "Pases/90":                 0.04,
+    # ── PORTEROS ─────────────────────────────────────────────────────────────
+    "Portero_Clasico": {
+        "Goles_evitados_%":   0.22,
+        "Paradas/90":         0.18,
+        "Porterias_cero_%":   0.15,
+        "Goles_encajados/90": 0.15,
+        "Pases_largos/90":    0.12,
+        "Precision_pases_%":  0.08,
+        "Error_disparo/90":   0.06,
+        "Salidas/90":         0.04,
+    },
+    "Portero_Moderno": {
+        "Salidas/90":         0.20,
+        "Goles_evitados_%":   0.14,
+        "Pases/90":           0.14,
+        "Precision_pases_%":  0.12,
+        "Pases_largos/90":    0.12,
+        "Precision_largos_%": 0.10,
+        "Ratio_pases_adelante_%": 0.10,
+        "Goles_encajados/90": 0.08,
     },
 
-    "Portero_Avanzado": {
-        "Goles_evitados_%":         0.15,
-        "Porterias_cero_%":         0.10,
-        "Goles_encajados/90":       0.10,
-        "Paradas/90":               0.08,
-        "Salidas/90":               0.10,
-        "Pases/90":                 0.12,
-        "Precision_pases_%":        0.12,
-        "Pases_largos/90":          0.10,
-        "Ratio_pases_adelante_%":   0.08,
-        "Error_disparo/90":         0.05,
-    },
-
-    "Lateral_Defensivo": {
-        "Duelos_ganados_%":         0.14,
-        "Entradas/90":              0.14,
-        "Entradas_ganadas_%":       0.12,
-        "Recuperaciones/90":        0.12,
-        "Regateado/90":             0.10,
-        "Duelos_aereos_ganados_%":  0.08,
-        "Despejes/90":              0.08,
-        "Pases_campo_rival/90":     0.08,
-        "Perdidas/90":              0.07,
-        "Faltas/90":                0.07,
-    },
-
-    "Lateral_Ofensivo": {
-        "Centros/90":               0.16,
-        "Precision_centros_%":      0.12,
-        "Regates/90":               0.12,
-        "Regates_exito_%":          0.10,
-        "Pases_campo_rival/90":     0.10,
-        "Asistencias/90":           0.10,
-        "xA/90":                    0.10,
-        "Faltas_recibidas/90":      0.08,
-        "Recuperaciones/90":        0.07,
-        "Entradas/90":              0.05,
-    },
-
+    # ── CENTRALES ─────────────────────────────────────────────────────────────
     "Central_Stopper": {
-        "Duelos_ganados_%":         0.16,
-        "Duelos_aereos_ganados_%":  0.14,
-        "Duelos_aereos/90":         0.10,
-        "Entradas/90":              0.10,
-        "Entradas_ganadas_%":       0.10,
-        "Despejes/90":              0.10,
-        "Tiros_bloqueados_def/90":  0.10,
-        "Recuperaciones/90":        0.08,
-        "Regateado/90":             0.06,
-        "Faltas/90":                0.06,
+        "Duelos_aereos_ganados_%": 0.18,
+        "Duelos_aereos/90":        0.14,
+        "Duelos_ganados_%":        0.14,
+        "Despejes/90":             0.12,
+        "Intercepciones/90":       0.12,
+        "Entradas/90":             0.12,
+        "Recuperaciones/90":       0.10,
+        "Regateado/90":            0.08,
     },
-
     "Central_Clasico": {
-        "Duelos_ganados_%":         0.14,
-        "Duelos_aereos_ganados_%":  0.12,
-        "Entradas_ganadas_%":       0.10,
-        "Despejes/90":              0.10,
-        "Recuperaciones/90":        0.10,
-        "Pases/90":                 0.10,
-        "Precision_pases_%":        0.10,
-        "Pases_largos/90":          0.08,
-        "Regateado/90":             0.08,
-        "Perdidas/90":              0.08,
+        "Duelos_ganados_%":        0.16,
+        "Duelos_aereos_ganados_%": 0.12,
+        "Entradas_ganadas_%":      0.12,
+        "Despejes/90":             0.12,
+        "Recuperaciones/90":       0.12,
+        "Pases/90":                0.12,
+        "Precision_pases_%":       0.12,
+        "Regateado/90":            0.12,
     },
-
     "Central_Salida": {
-        "Pases/90":                 0.16,
-        "Precision_pases_%":        0.14,
-        "Pases_campo_rival/90":     0.12,
-        "Ratio_pases_adelante_%":   0.12,
-        "Pases_largos/90":          0.10,
-        "Precision_pases_largos_%": 0.10,
-        "Recuperaciones/90":        0.08,
-        "Duelos_ganados_%":         0.08,
-        "Regateado/90":             0.06,
-        "Perdidas/90":              0.04,
+        "Pases/90":                0.18,
+        "Precision_pases_%":       0.16,
+        "Pases_campo_rival/90":    0.14,
+        "Ratio_pases_adelante_%":  0.12,
+        "Pases_largos/90":         0.12,
+        "Precision_largos_%":      0.10,
+        "Recuperaciones/90":       0.10,
+        "Perdidas/90":             0.08,
     },
 
+    # ── LATERALES ─────────────────────────────────────────────────────────────
+    "Lateral_Defensivo": {
+        "Duelos_ganados_%":        0.16,
+        "Entradas/90":             0.14,
+        "Entradas_ganadas_%":      0.14,
+        "Recuperaciones/90":       0.14,
+        "Intercepciones/90":       0.12,
+        "Despejes/90":             0.10,
+        "Duelos_aereos_ganados_%": 0.10,
+        "Regateado/90":            0.10,
+    },
+    "Lateral_Ofensivo": {
+        "xA/90":                   0.18,
+        "Asistencias/90":          0.14,
+        "Centros/90":              0.12,
+        "Pases_campo_rival/90":    0.12,
+        "Regates/90":              0.12,
+        "Faltas_recibidas/90":     0.10,
+        "Recuperaciones/90":       0.10,
+        "Entradas/90":             0.12,
+    },
+    "Carrilero": {
+        "Pases_campo_rival/90":    0.18,
+        "xA/90":                   0.14,
+        "Recuperaciones/90":       0.14,
+        "Entradas/90":             0.12,
+        "Pases/90":                0.12,
+        "Centros/90":              0.10,
+        "Duelos_ganados_%":        0.10,
+        "Perdidas/90":             0.10,
+    },
+
+    # ── CENTROCAMPISTAS ───────────────────────────────────────────────────────
     "Pivote_Defensivo": {
-        "Recuperaciones/90":        0.16,
-        "Entradas/90":              0.14,
-        "Entradas_ganadas_%":       0.12,
-        "Duelos_ganados_%":         0.12,
-        "Tiros_bloqueados_def/90":  0.10,
-        "Pases/90":                 0.10,
-        "Precision_pases_%":        0.08,
-        "Perdidas/90":              0.08,
-        "Faltas/90":                0.06,
-        "Despejes/90":              0.04,
+        "Recuperaciones/90":       0.20,
+        "Intercepciones/90":       0.18,
+        "Entradas/90":             0.14,
+        "Duelos_ganados_%":        0.14,
+        "Entradas_ganadas_%":      0.10,
+        "Pases/90":                0.10,
+        "Precision_pases_%":       0.08,
+        "Perdidas/90":             0.06,
     },
-
-    "Interior": {
-        "Pases_campo_rival/90":     0.16,
-        "Precision_pases_%":        0.12,
-        "xA/90":                    0.12,
-        "Asistencias/90":           0.10,
-        "Faltas_recibidas/90":      0.10,
-        "Regates/90":               0.10,
-        "Toques/90":                0.08,
-        "Duelos_ganados_%":         0.08,
-        "Recuperaciones/90":        0.08,
-        "Goles/90":                 0.06,
+    "Mediocentro_Org": {
+        "Pases/90":                0.20,
+        "Precision_pases_%":       0.18,
+        "Pases_campo_rival/90":    0.14,
+        "Ratio_pases_adelante_%":  0.12,
+        "Pases_largos/90":         0.12,
+        "Precision_largos_%":      0.10,
+        "Recuperaciones/90":       0.08,
+        "Perdidas/90":             0.06,
     },
-
     "Box_to_Box": {
-        "Recuperaciones/90":        0.14,
-        "Duelos_ganados_%":         0.12,
-        "Regates/90":               0.10,
-        "Pases_campo_rival/90":     0.10,
-        "Goles/90":                 0.10,
-        "xG/90":                    0.08,
-        "Asistencias/90":           0.08,
-        "xA/90":                    0.08,
-        "Toques/90":                0.08,
-        "Entradas/90":              0.06,
-        "Faltas_recibidas/90":      0.06,
+        "Recuperaciones/90":       0.16,
+        "Goles/90":                0.14,
+        "xG/90":                   0.12,
+        "xA/90":                   0.12,
+        "Duelos_ganados_%":        0.12,
+        "Regates/90":              0.10,
+        "Entradas/90":             0.10,
+        "Faltas_recibidas/90":     0.14,
+    },
+    "Interior_Mediapunta": {
+        "xA/90":                   0.18,
+        "Pases_campo_rival/90":    0.16,
+        "Asistencias/90":          0.12,
+        "Faltas_recibidas/90":     0.12,
+        "Regates/90":              0.12,
+        "Goles/90":                0.12,
+        "xG/90":                   0.10,
+        "Toques/90":               0.08,
     },
 
-    "Mediapunta": {
-        "xA/90":                    0.18,
-        "Asistencias/90":           0.14,
-        "xA_Overperformance":       0.10,
-        "Pases_campo_rival/90":     0.12,
-        "Faltas_recibidas/90":      0.10,
-        "Regates/90":               0.10,
-        "Regates_exito_%":          0.08,
-        "Toques/90":                0.08,
-        "Goles/90":                 0.10,
-    },
-
-    "Extremo_Asociativo": {
-        "Asistencias/90":           0.16,
-        "xA/90":                    0.14,
-        "Centros/90":               0.12,
-        "Precision_centros_%":      0.10,
-        "Faltas_recibidas/90":      0.10,
-        "Pases_campo_rival/90":     0.10,
-        "Regates/90":               0.10,
-        "Goles/90":                 0.10,
-        "xG/90":                    0.08,
-    },
-
+    # ── EXTREMOS ──────────────────────────────────────────────────────────────
     "Extremo_Puro": {
-        "Regates/90":               0.18,
-        "Regates_exito_%":          0.14,
-        "Faltas_recibidas/90":      0.12,
-        "Duelos_ganados_%":         0.10,
-        "Centros/90":               0.10,
-        "Precision_centros_%":      0.08,
-        "Goles/90":                 0.10,
-        "xG/90":                    0.08,
-        "Pases_campo_rival/90":     0.06,
-        "Asistencias/90":           0.04,
+        "Regates/90":              0.22,
+        "Regates_exito_%":         0.16,
+        "Faltas_recibidas/90":     0.14,
+        "Duelos_ganados_%":        0.12,
+        "xA/90":                   0.10,
+        "Goles/90":                0.10,
+        "xG/90":                   0.08,
+        "Pases_campo_rival/90":    0.08,
+    },
+    "Extremo_Asociativo": {
+        "xA/90":                   0.18,
+        "Asistencias/90":          0.14,
+        "Centros/90":              0.14,
+        "Precision_centros_%":     0.12,
+        "Pases_campo_rival/90":    0.12,
+        "Faltas_recibidas/90":     0.10,
+        "Goles/90":                0.10,
+        "xG/90":                   0.10,
+    },
+    "Interior_Banda": {
+        "xG/90":                   0.22,
+        "Goles/90":                0.18,
+        "xG_Overperformance_90":   0.12,
+        "Remates/90":              0.12,
+        "Regates/90":              0.12,
+        "Faltas_recibidas/90":     0.10,
+        "xA/90":                   0.08,
+        "Centros/90":              0.06,
     },
 
+    # ── DELANTEROS ────────────────────────────────────────────────────────────
     "Delantero_Goleador": {
-        "Goles/90":                 0.20,
-        "xG/90":                    0.16,
-        "Conversion_Gol_%":         0.14,
-        "xG_Overperformance_90":    0.12,
-        "Remates/90":               0.10,
-        "Tiros_a_puerta_%":         0.10,
-        "Duelos_aereos_ganados_%":  0.08,
-        "Faltas_recibidas/90":      0.04,
-        "Duelos_ganados_%":         0.04,
-        "Toques/90":                0.02,
+        "Goles/90":                0.22,
+        "xG/90":                   0.18,
+        "xG_Overperformance_90":   0.14,
+        "Conversion_Gol_%":        0.14,
+        "Remates/90":              0.12,
+        "Tiros_a_puerta_%":        0.10,
+        "Duelos_aereos_ganados_%": 0.06,
+        "Faltas_recibidas/90":     0.04,
     },
-
     "Delantero_Movil": {
-        "Goles/90":                 0.14,
-        "xG/90":                    0.12,
-        "Asistencias/90":           0.12,
-        "xA/90":                    0.10,
-        "Regates/90":               0.10,
-        "xG_Overperformance_90":    0.08,
-        "Faltas_recibidas/90":      0.10,
-        "Pases_campo_rival/90":     0.08,
-        "Duelos_ganados_%":         0.08,
-        "Toques/90":                0.08,
+        "Goles/90":                0.16,
+        "xG/90":                   0.14,
+        "xA/90":                   0.14,
+        "Asistencias/90":          0.12,
+        "Regates/90":              0.12,
+        "Faltas_recibidas/90":     0.10,
+        "xG_Overperformance_90":   0.10,
+        "Pases_campo_rival/90":    0.12,
+    },
+    "Segundo_Delantero": {
+        "Duelos_aereos/90":        0.24,
+        "Duelos_aereos_ganados_%": 0.18,
+        "Faltas_recibidas/90":     0.14,
+        "Toques/90":               0.12,
+        "xG/90":                   0.12,
+        "Duelos_ganados_%":        0.10,
+        "Faltas/90":               0.06,
+        "Regates/90":              0.04,
     },
 }
 
-metricas_negativas = ["Faltas/90", "Perdidas/90", "Regateado/90", "Error_disparo/90", "Goles_encajados/90"]
+metricas_negativas = [
+    "Faltas/90", "Perdidas/90", "Regateado/90",
+    "Error_disparo/90", "Goles_encajados/90",
+]
 
-pos_map = {"G": ["GK"], "D": ["CB","RB","LB"], "M": ["DM","CM","AM"], "F": ["RW","LW","FW"]}
+# Métricas negativas específicas por rol (solo se aplican para ese rol concreto)
+metricas_negativas_por_rol = {
+    "Interior_Banda": ["Centros/90"],
+    "Carrilero":      ["Perdidas/90"],
+    "Central_Salida": ["Perdidas/90"],
+    "Pivote_Defensivo": ["Perdidas/90"],
+    "Mediocentro_Org":  ["Perdidas/90"],
+}
+
+def es_negativa(metrica, rol=None):
+    """Devuelve True si la métrica es negativa para el rol dado."""
+    if metrica in metricas_negativas:
+        return True
+    if rol and metrica in metricas_negativas_por_rol.get(rol, []):
+        return True
+    return False
+
+pos_map = {"G": ["GK"], "D": ["CB","RB","LB"], "M": ["DM","CM","AM"], "F": ["RW","LW","FW","ST"]}
+
+pos_detallada_map = {
+    "GK": "GK", "G":  "GK",
+    "DC": "CB", "D":  "CB",
+    "DR": "RB", "DL": "LB",
+    "MC": "CM", "M":  "CM",
+    "DM": "DM", "AM": "AM",
+    "MR": "RM", "ML": "LM",
+    "ST": "ST", "F":  "ST",
+    "RW": "RW", "LW": "LW",
+    "CB": "CB", "RB": "RB", "LB": "LB",
+    "CM": "CM", "FW": "ST", "CF": "ST", "SS": "ST",
+}
+
+def normalize_pos_detallada(pos_det):
+    if pd.isna(pos_det) or str(pos_det).strip() == '': return []
+    result = []
+    partes = str(pos_det).strip().upper().split('/')
+    for parte in partes:
+        key = parte.strip()
+        mapped = pos_detallada_map.get(key)
+        if mapped:
+            if mapped not in result:
+                result.append(mapped)
+        else:
+            for k, v in pos_detallada_map.items():
+                if k in key and v not in result:
+                    result.append(v)
+                    break
+    return result
 
 rol_pos_map = {
-    "Portero":            ["GK"],
-    "Portero_Avanzado":   ["GK"],
-    "Lateral_Defensivo":  ["CB","RB","LB"],
-    "Lateral_Ofensivo":   ["CB","RB","LB"],
-    "Central_Stopper":    ["CB","RB","LB"],
-    "Central_Clasico":    ["CB","RB","LB"],
-    "Central_Salida":     ["CB","RB","LB"],
-    "Pivote_Defensivo":   ["DM","CM"],
-    "Interior":           ["DM","CM","AM"],
-    "Box_to_Box":         ["DM","CM","AM"],
-    "Mediapunta":         ["CM","AM"],
-    "Extremo_Asociativo": ["RW","LW","FW","AM"],
-    "Extremo_Puro":       ["RW","LW","FW","AM"],
-    "Delantero_Movil":    ["FW","RW","LW"],
-    "Delantero_Goleador": ["FW","RW","LW"],
+    "Portero_Clasico":         ["GK"],
+    "Portero_Moderno":         ["GK"],
+    "Lateral_Defensivo":       ["RB","LB"],
+    "Lateral_Ofensivo":        ["RB","LB"],
+    "Carrilero":               ["RB","LB","RM","LM"],
+    "Central_Stopper":         ["CB"],
+    "Central_Clasico":         ["CB"],
+    "Central_Salida":          ["CB"],
+    "Pivote_Defensivo":        ["DM","CM"],
+    "Mediocentro_Org":         ["DM","CM"],
+    "Box_to_Box":              ["DM","CM","RM","LM"],
+    "Interior_Mediapunta":     ["DM","CM","AM","RM","LM"],
+    "Extremo_Asociativo":      ["RW","LW","AM","RM","LM"],
+    "Extremo_Puro":            ["RW","LW"],
+    "Interior_Banda":          ["RW","LW","RM","LM"],
+    "Delantero_Movil":         ["ST","RW","LW"],
+    "Delantero_Goleador":      ["ST"],
+    "Segundo_Delantero":       ["ST"],
 }
+
 
 # ==========================================================
 # CARGA Y TRANSFORMACIÓN
@@ -295,17 +347,28 @@ def load_data(files):
         dfs.append(d)
     raw = pd.concat(dfs, ignore_index=True)
 
-    # Asegurar columnas opcionales con valor 0 si no existen en el CSV
-    for col in ['tiros_al_palo', 'tiros_bloqueados', 'xG', 'xA',
-                'pases_largos_totales', 'pases_largos_precisos',
-                'centros_totales', 'centros_precisos',
-                'entradas_totales', 'entradas_ganadas',
-                'duelos_aereos_ganados', 'duelos_aereos_perdidos',
-                'regates_intentados', 'regates_exitosos', 'regateado',
-                'paradas_dentro_area', 'salidas',
-                'error_que_lleva_a_disparo', 'resultado_rival']:
+    # Columnas numéricas que deben ser 0 si no existen o son NaN
+    # (si un jugador no hizo regates en un partido, es 0, no desconocido)
+    stat_cols = [
+        'goles','tiros_totales','tiros_a_puerta','tiros_al_palo','tiros_bloqueados',
+        'xG','xA','asistencias','pases_totales','pases_precisos',
+        'pases_campo_propio','pases_campo_rival',
+        'pases_largos_totales','pases_largos_precisos',
+        'centros_totales','centros_precisos',
+        'entradas_totales','entradas_ganadas','despejes',
+        'duelos_ganados','duelos_perdidos',
+        'duelos_aereos_ganados','duelos_aereos_perdidos',
+        'regates_intentados','regates_exitosos','regateado',
+        'faltas_cometidas','faltas_recibidas',
+        'recuperaciones','perdidas','toques',
+        'paradas_totales','paradas_dentro_area','salidas',
+        'error_que_lleva_a_disparo','resultado_rival',
+    ]
+    for col in stat_cols:
         if col not in raw.columns:
             raw[col] = 0
+        else:
+            raw[col] = pd.to_numeric(raw[col], errors='coerce').fillna(0)
 
     agg = raw.groupby(['jugador','equipo','liga']).agg(
         minutos_jugados        = ('minutos_jugados',           'sum'),
@@ -438,7 +501,7 @@ def compute_percentiles(players, min_minutes_base=450):
             if metric not in df_ref.columns: continue
             ref_vals = df_ref[metric].dropna()
             if len(ref_vals) < 2: continue
-            def to_pct(v, rv=ref_vals, neg=(metric in metricas_negativas)):
+            def to_pct(v, rv=ref_vals, neg=es_negativa(metric, rol)):
                 if pd.isna(v): return np.nan
                 n = len(rv)
                 rank = (rv < v).sum() + (rv == v).sum() * 0.5
@@ -477,7 +540,7 @@ def player_percentiles(players, player_name, role):
     return pd.DataFrame([{
         "Métrica": m.replace("_pct",""),
         "Percentil": round(row.get(m, 0) * 100, 1),
-        "Tipo": "⬇ negativa" if m.replace("_pct","") in metricas_negativas else ""
+        "Tipo": "⬇ negativa" if es_negativa(m.replace("_pct",""), role) else ""
     } for m in pct_cols])
 
 def best_roles_for_player(player_name, players, min_minutes, top_n=3):
@@ -487,10 +550,10 @@ def best_roles_for_player(player_name, players, min_minutes, top_n=3):
     positions = player_row.iloc[0]["Pos_norm"]
     is_gk = "GK" in positions
     if is_gk:
-        allowed_roles = [r for r in pesos_roles if "Portero" in r]
+        allowed_roles = [r for r in pesos_roles if "Portero_Clasico" in r]
     else:
         allowed_roles = [r for r, pl in rol_pos_map.items()
-                         if any(p in positions for p in pl) and "Portero" not in r]
+                         if any(p in positions for p in pl) and "Portero_Clasico" not in r]
     results = []
     for rol in allowed_roles:
         weights = pesos_roles[rol]
@@ -501,6 +564,13 @@ def best_roles_for_player(player_name, players, min_minutes, top_n=3):
                     for m in metrics if not pd.isna(row.get(f"{m}_pct", 0)))
         results.append((rol, round(score * 10, 2)))
     return sorted(results, key=lambda x: x[1], reverse=True)[:top_n]
+
+def pos_display(row):
+    """Devuelve Posicion_detallada si existe, si no Posicion genérica."""
+    pd_val = row.get("Posicion_detallada", None)
+    if pd_val is not None and pd.notna(pd_val) and str(pd_val).strip():
+        return str(pd_val).strip()
+    return row.get("Posicion", "")
 
 def find_similar_players(players, role, player_name, min_minutes, top_n=5):
     df = players[players["Minutos jugados"] >= min_minutes].copy()
@@ -517,7 +587,9 @@ def find_similar_players(players, role, player_name, min_minutes, top_n=5):
     sims = cosine_similarity(df[pct_cols].values, target_vec).flatten()
     df["Similarity"] = sims
     df = df[df["Jugador_ID"] != player_name]
-    return df.sort_values("Similarity", ascending=False).head(top_n)[["Jugador","Equipo","Posicion","Similarity"]]
+    df_out = df.sort_values("Similarity", ascending=False).head(top_n).copy()
+    df_out["Posicion"] = df_out.apply(pos_display, axis=1)
+    return df_out[["Jugador","Equipo","Posicion","Similarity"]]
 
 # ==========================================================
 # VISUALIZACIONES
@@ -540,7 +612,7 @@ def plot_percentiles_bar(df_pct):
         ax.axvline(v, color="grey", linestyle="--", alpha=0.3)
     labels = ax.get_yticklabels()
     for label in labels:
-        if label.get_text() in metricas_negativas:
+        if es_negativa(label.get_text()):
             label.set_color("#e74c3c")
     plt.tight_layout()
     st.pyplot(fig)
@@ -610,12 +682,12 @@ def stripplot_role(players_df, role, player_name, min_minutes):
         p_val = player_row.get(metric, np.nan)
         if pd.isna(p_val): continue
         pct_rank = (values < p_val).sum() / len(values) * 100
-        if metric in metricas_negativas: pct_rank = 100 - pct_rank
+        if es_negativa(metric, role): pct_rank = 100 - pct_rank
         fig, ax = plt.subplots(figsize=(8, 0.7))
         ax.scatter(values, np.zeros(len(values)), alpha=0.3, color="#aaaaaa", s=20, zorder=2)
         ax.axvline(values.mean(), color="steelblue", linestyle="--", alpha=0.5, linewidth=1)
         ax.scatter([p_val], [0], color=percentile_color(pct_rank), s=120, zorder=5)
-        neg_tag = " ⬇" if metric in metricas_negativas else ""
+        neg_tag = " ⬇" if es_negativa(metric, role) else ""
         ax.set_xlabel(f"{metric}{neg_tag}  (pct: {pct_rank:.0f})", fontsize=9)
         ax.set_yticks([]); ax.spines[["top","right","left"]].set_visible(False)
         plt.tight_layout(); st.pyplot(fig)
@@ -625,20 +697,21 @@ def stripplot_role(players_df, role, player_name, min_minutes):
 # ==========================================================
 
 st.sidebar.header("📂 Subir CSV(s)")
-files_partidos = st.sidebar.file_uploader(
-    "CSV partido a partido", type=["csv"], accept_multiple_files=True, key="partidos"
+all_files = st.sidebar.file_uploader(
+    "Sube los CSV (partidos y/o jugadores)", type=["csv"], accept_multiple_files=True, key="all_files"
 )
-files_jugadores = st.sidebar.file_uploader(
-    "CSV jugadores (opcional, añade altura, pie, nacionalidad...)", type=["csv"], accept_multiple_files=True, key="jugadores"
-)
+
+# Separar automáticamente por nombre de archivo
+files_partidos = [f for f in all_files if 'partidos' in getattr(f, 'name', '').lower()]
+files_jugadores = [f for f in all_files if 'jugadores' in getattr(f, 'name', '').lower()]
 
 if not files_partidos:
-    st.info("👈 Sube uno o varios CSV de partido a partido para comenzar.")
+    st.info("👈 Sube los CSV de partidos (y opcionalmente los de jugadores) para comenzar.")
+    if all_files:
+        st.warning(f"⚠️ Archivos subidos: {[getattr(f,'name','') for f in all_files]}. Asegúrate que los nombres contienen 'partidos' o 'jugadores'.")
     st.stop()
 
-files = files_partidos
-
-players_master = load_data(files)
+players_master = load_data(files_partidos)
 
 # Enriquecer con datos de plantilla si se han subido
 if files_jugadores:
@@ -660,6 +733,16 @@ if files_jugadores:
         for col in squad_df.columns:
             players_master[col] = players_master['_key'].map(squad_df[col])
         players_master = players_master.drop(columns=['_key'])
+        # Recalcular Pos_norm usando posicion_detallada si está disponible
+        if 'Posicion_detallada' in players_master.columns:
+            def _recalc_pos_norm(row):
+                pos_det = row.get('Posicion_detallada')
+                if pd.notna(pos_det) and str(pos_det).strip():
+                    result = normalize_pos_detallada(str(pos_det))
+                    if result:
+                        return result
+                return row['Pos_norm']
+            players_master['Pos_norm'] = players_master.apply(_recalc_pos_norm, axis=1)
 
 st.sidebar.divider()
 st.sidebar.subheader("🔎 Filtros")
@@ -676,56 +759,68 @@ players_master = compute_percentiles(players_master, min_minutes_base=450)
 pct_cols = [c for c in players_master.columns if c.endswith("_pct")]
 
 min_minutes = st.sidebar.slider("Minutos mínimos", 0, int(players_master["Minutos jugados"].max()), 450)
+
+# players_master ya tiene percentiles calculados — players es la vista base (min minutos)
 players = players_master[players_master["Minutos jugados"] >= min_minutes].copy()
 
-equipos = sorted(players["Equipo"].dropna().unique())
-if len(equipos) > 1:
-    usar_equipo = st.sidebar.checkbox("Filtrar por Equipo", value=False)
-    if usar_equipo:
-        equipo_sel = st.sidebar.multiselect("Equipos", equipos, placeholder="Todos...")
-        if equipo_sel:
-            players = players[players["Equipo"].isin(equipo_sel)]
-
-pos_disp = sorted(set(p for pl in players["Pos_norm"] for p in pl))
-if pos_disp:
-    usar_pos = st.sidebar.checkbox("Filtrar por Posición", value=False)
-    if usar_pos:
-        pos_sel = st.sidebar.multiselect("Posiciones", pos_disp, placeholder="Todas...")
-        if pos_sel:
-            players = players[players["Pos_norm"].apply(lambda x: any(p in pos_sel for p in x))]
-
-# Filtro edad (solo si hay Fecha_nacimiento)
+# Calcular edad una sola vez sobre players_master para uso en tabs
+from datetime import datetime as _dt
+def _calc_edad(fn):
+    if pd.isna(fn): return None
+    for fmt in ["%d/%m/%Y", "%Y-%m-%d"]:
+        try: return (_dt.now() - _dt.strptime(str(fn), fmt)).days // 365
+        except: pass
+    return None
 if "Fecha_nacimiento" in players.columns:
-    from datetime import datetime as _dt
-    def _calc_edad(fn):
-        if pd.isna(fn): return None
-        for fmt in ["%d/%m/%Y", "%Y-%m-%d"]:
-            try: return (_dt.now() - _dt.strptime(str(fn), fmt)).days // 365
-            except: pass
-        return None
     players["_edad"] = players["Fecha_nacimiento"].apply(_calc_edad)
-    edades_validas = players["_edad"].dropna()
-    if not edades_validas.empty:
-        edad_min_v = int(edades_validas.min())
-        edad_max_v = int(edades_validas.max())
-        if edad_min_v < edad_max_v:
-            usar_edad = st.sidebar.checkbox("Filtrar por Edad", value=False)
-            if usar_edad:
-                edad_sel = st.sidebar.slider("Rango de edad", edad_min_v, edad_max_v, (edad_min_v, edad_max_v))
-                players = players[players["_edad"].between(edad_sel[0], edad_sel[1], inclusive="both") | players["_edad"].isna()]
-    players = players.drop(columns=["_edad"], errors="ignore")
-
-# Filtro pie dominante (solo si hay Pie_dominante)
-if "Pie_dominante" in players.columns:
-    pies_disp = sorted(players["Pie_dominante"].dropna().unique())
-    if len(pies_disp) > 1:
-        usar_pie = st.sidebar.checkbox("Filtrar por Pie", value=False)
-        if usar_pie:
-            pie_sel = st.sidebar.multiselect("Pie dominante", pies_disp, placeholder="Todos...")
-            if pie_sel:
-                players = players[players["Pie_dominante"].isin(pie_sel)]
+else:
+    players["_edad"] = None
 
 role_scores = compute_role_scores(players, min_minutes)
+
+# ── Helper: filtros locales por tab ─────────────────────────────────────────
+def filtros_tab(df, key_prefix, mostrar_pos=True, mostrar_pie=True, mostrar_edad=True, mostrar_equipo=False):
+    """Aplica filtros locales de posición, pie, edad y equipo. Devuelve df filtrado."""
+    resultado = df.copy()
+    cols = st.columns(4 if mostrar_equipo else 3)
+    ci = 0
+    # Posición
+    if mostrar_pos:
+        pos_disp = sorted(set(p for pl in resultado["Pos_norm"] for p in pl))
+        if pos_disp:
+            with cols[ci]:
+                pos_sel = st.multiselect("Posición", pos_disp, placeholder="Todas...", key=f"{key_prefix}_pos")
+                if pos_sel:
+                    resultado = resultado[resultado["Pos_norm"].apply(lambda x: any(p in pos_sel for p in x))]
+            ci += 1
+    # Pie dominante
+    if mostrar_pie and "Pie_dominante" in resultado.columns:
+        pies_disp = sorted(resultado["Pie_dominante"].dropna().unique())
+        if len(pies_disp) > 1:
+            with cols[ci]:
+                pie_sel = st.multiselect("Pie", pies_disp, placeholder="Todos...", key=f"{key_prefix}_pie")
+                if pie_sel:
+                    resultado = resultado[resultado["Pie_dominante"].isin(pie_sel)]
+            ci += 1
+    # Edad
+    if mostrar_edad and "_edad" in resultado.columns:
+        edades = resultado["_edad"].dropna()
+        if not edades.empty and int(edades.min()) < int(edades.max()):
+            with cols[ci]:
+                edad_min_v, edad_max_v = int(edades.min()), int(edades.max())
+                edad_sel = st.slider("Edad", edad_min_v, edad_max_v, (edad_min_v, edad_max_v), key=f"{key_prefix}_edad")
+                if edad_sel != (edad_min_v, edad_max_v):
+                    resultado = resultado[resultado["_edad"].between(edad_sel[0], edad_sel[1]) | resultado["_edad"].isna()]
+            ci += 1
+    # Equipo
+    if mostrar_equipo:
+        equipos_disp = sorted(resultado["Equipo"].dropna().unique())
+        if len(equipos_disp) > 1:
+            with cols[ci]:
+                eq_sel = st.multiselect("Equipo", equipos_disp, placeholder="Todos...", key=f"{key_prefix}_equipo")
+                if eq_sel:
+                    resultado = resultado[resultado["Equipo"].isin(eq_sel)]
+    return resultado
 
 tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10 = st.tabs([
     "🏆 Rankings", "🕷 Radar", "📋 Alineación", "📊 Percentiles",
@@ -737,12 +832,20 @@ with tab1:
     if role_scores:
         sel = st.selectbox("Rol", list(role_scores.keys()), index=None, placeholder="Elige un rol...", key="rfef_rank_role")
         if sel:
-            df_r = role_scores[sel][role_scores[sel]["Rating"].notna()]
-            st.dataframe(df_r[["Jugador","Equipo","Posicion","Minutos jugados","Partidos","Rating"]], use_container_width=True)
+            df_r = role_scores[sel][role_scores[sel]["Rating"].notna()].copy()
+            # Filtros locales
+            df_r = filtros_tab(df_r, "rank", mostrar_pos=False, mostrar_pie=True, mostrar_edad=True, mostrar_equipo=True)
+            df_r_show = df_r.copy()
+            df_r_show["Posicion"] = df_r_show.apply(
+                lambda r: r["Posicion_detallada"]
+                if "Posicion_detallada" in r.index and pd.notna(r.get("Posicion_detallada")) and str(r.get("Posicion_detallada","")).strip() != ""
+                else r["Posicion"], axis=1
+            )
+            st.dataframe(df_r_show[["Jugador","Equipo","Posicion","Minutos jugados","Partidos","Rating"]], use_container_width=True)
             with st.expander("ℹ️ Métricas de este rol"):
                 w = pesos_roles[sel]
                 rows = [{"Métrica": m, "Peso": f"{v*100:.0f}%",
-                         "Tipo": "⬇ negativa" if m in metricas_negativas else ""}
+                         "Tipo": "⬇ negativa" if es_negativa(m, sel) else ""}
                         for m, v in sorted(w.items(), key=lambda x: -x[1])]
                 st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
 
@@ -756,283 +859,251 @@ with tab2:
             if sel_p: radar_plot(role_scores[sel], sel, sel_p)
 
 with tab3:
-    st.subheader("📋 Alineación Automática")
+    st.subheader("📋 Alineación")
 
-    # ----------------------------------------------------------
-    # Coordenadas por rol y formación (igual que Wyscout)
-    # ----------------------------------------------------------
-    formation_coords_rfef = {
-        "4-3-3": {
-            "Portero":            (50, 8),
-            "Lateral_Defensivo":  [(18, 28), (82, 28)],
-            "Central_Stopper":    (35, 20),
-            "Central_Clasico":    (65, 20),
-            "Pivote_Defensivo":   (50, 44),
-            "Box_to_Box":         (28, 54),
-            "Interior":           (72, 54),
-            "Extremo_Puro":       (15, 76),
-            "Extremo_Asociativo": (85, 76),
-            "Delantero_Goleador": (50, 87),
-        },
-        "4-4-2": {
-            "Portero":            (50, 8),
-            "Lateral_Defensivo":  [(18, 25), (82, 25)],
-            "Central_Clasico":    [(35, 18), (65, 18)],
-            "Pivote_Defensivo":   (35, 48),
-            "Interior":           (65, 48),
-            "Extremo_Puro":       [(15, 72), (85, 72)],
-            "Delantero_Goleador": (38, 87),
-            "Delantero_Movil":    (62, 87),
-        },
-        "3-5-2": {
-            "Portero":            (50, 8),
-            "Central_Salida":     (50, 22),
-            "Central_Clasico":    [(28, 18), (72, 18)],
-            "Lateral_Ofensivo":   [(12, 44), (88, 44)],
-            "Pivote_Defensivo":   (50, 50),
-            "Interior":           [(28, 62), (72, 62)],
-            "Delantero_Goleador": (38, 87),
-            "Delantero_Movil":    (62, 87),
-        },
-        "5-3-2": {
-            "Portero":            (50, 8),
-            "Central_Clasico":    [(28, 18), (72, 18)],
-            "Central_Salida":     (50, 22),
-            "Lateral_Defensivo":  [(10, 28), (90, 28)],
-            "Pivote_Defensivo":   (50, 50),
-            "Interior":           [(28, 62), (72, 62)],
-            "Delantero_Goleador": (38, 87),
-            "Delantero_Movil":    (62, 87),
-        },
-        "4-5-1": {
-            "Portero":            (50, 8),
-            "Lateral_Defensivo":  [(18, 25), (82, 25)],
-            "Central_Clasico":    [(35, 18), (65, 18)],
-            "Pivote_Defensivo":   (50, 48),
-            "Interior":           [(28, 58), (72, 58)],
-            "Extremo_Puro":       [(12, 72), (88, 72)],
-            "Delantero_Goleador": (50, 87),
-        },
-        "3-4-3": {
-            "Portero":            (50, 8),
-            "Central_Salida":     (50, 22),
-            "Central_Clasico":    [(28, 18), (72, 18)],
-            "Lateral_Ofensivo":   [(12, 48), (88, 48)],
-            "Mediapunta":         (50, 58),
-            "Extremo_Puro":       [(18, 78), (82, 78)],
-            "Delantero_Goleador": (50, 87),
-        },
-        "4-3-3 Asimetrico": {
-            "Portero":            (50, 8),
-            "Lateral_Defensivo":  (15, 27),
-            "Central_Clasico":    (35, 18),
-            "Central_Stopper":    (65, 18),
-            "Lateral_Ofensivo":   (85, 30),
-            "Pivote_Defensivo":   (50, 44),
-            "Box_to_Box":         (30, 54),
-            "Mediapunta":         (68, 60),
-            "Extremo_Puro":       (15, 76),
-            "Extremo_Asociativo": (82, 78),
-            "Delantero_Goleador": (50, 88),
-        },
-        "4-2-3-1": {
-            "Portero":            (50, 8),
-            "Lateral_Defensivo":  (15, 27),
-            "Central_Clasico":    (35, 18),
-            "Central_Stopper":    (65, 18),
-            "Lateral_Ofensivo":   (85, 30),
-            "Pivote_Defensivo":   (70, 44),
-            "Box_to_Box":         (30, 50),
-            "Mediapunta":         (50, 70),
-            "Extremo_Puro":       (15, 70),
-            "Extremo_Asociativo": (82, 70),
-            "Delantero_Goleador": (50, 88),
-        },
-    }
+    # ── Selector de líneas ───────────────────────────────────────────
+    col_l1, col_l2, col_l3, col_l4 = st.columns(4)
+    with col_l1: st.markdown("**Portero:** 1")
+    with col_l2: n_def = st.selectbox("Defensas",       [3,4,5],    index=1, key="alin_def")
+    with col_l3: n_med = st.selectbox("Mediocampistas", [2,3,4,5],  index=1, key="alin_med")
+    with col_l4: n_del = st.selectbox("Delanteros",     [1,2,3],    index=1, key="alin_del")
 
-    # Cuántos jugadores necesita cada rol por formación
-    formation_roles = {
-        "4-3-3": {
-            "Portero": 1, "Lateral_Defensivo": 2,
-            "Central_Stopper": 1, "Central_Clasico": 1,
-            "Pivote_Defensivo": 1, "Box_to_Box": 1, "Interior": 1,
-            "Extremo_Puro": 1, "Extremo_Asociativo": 1, "Delantero_Goleador": 1,
-        },
-        "4-4-2": {
-            "Portero": 1, "Lateral_Defensivo": 2, "Central_Clasico": 2,
-            "Pivote_Defensivo": 1, "Interior": 1,
-            "Extremo_Puro": 2, "Delantero_Goleador": 1, "Delantero_Movil": 1,
-        },
-        "3-5-2": {
-            "Portero": 1, "Central_Salida": 1, "Central_Clasico": 2,
-            "Lateral_Ofensivo": 2, "Pivote_Defensivo": 1, "Interior": 2,
-            "Delantero_Goleador": 1, "Delantero_Movil": 1,
-        },
-        "5-3-2": {
-            "Portero": 1, "Central_Clasico": 2, "Central_Salida": 1,
-            "Lateral_Defensivo": 2, "Pivote_Defensivo": 1, "Interior": 2,
-            "Delantero_Goleador": 1, "Delantero_Movil": 1,
-        },
-        "4-5-1": {
-            "Portero": 1, "Lateral_Defensivo": 2, "Central_Clasico": 2,
-            "Pivote_Defensivo": 1, "Interior": 2,
-            "Extremo_Puro": 2, "Delantero_Goleador": 1,
-        },
-        "3-4-3": {
-            "Portero": 1, "Central_Salida": 1, "Central_Clasico": 2,
-            "Lateral_Ofensivo": 2, "Mediapunta": 1,
-            "Extremo_Puro": 2, "Delantero_Goleador": 1,
-        },
-        "4-3-3 Asimetrico": {
-            "Portero": 1,
-            "Lateral_Defensivo": 1,
-            "Central_Clasico": 1,
-            "Central_Stopper": 1,
-            "Lateral_Ofensivo": 1,
-            "Pivote_Defensivo": 1,
-            "Box_to_Box": 1,
-            "Mediapunta": 1,
-            "Extremo_Puro": 1,
-            "Extremo_Asociativo": 1,
-            "Delantero_Goleador": 1,
-        },
-        "4-2-3-1": {
-            "Portero": 1,
-            "Lateral_Defensivo": 1,
-            "Central_Clasico": 1,
-            "Central_Stopper": 1,
-            "Lateral_Ofensivo": 1,
-            "Pivote_Defensivo": 1,
-            "Box_to_Box": 1,
-            "Mediapunta": 1,
-            "Extremo_Puro": 1,
-            "Extremo_Asociativo": 1,
-            "Delantero_Goleador": 1,
-        },
-    }
+    total = 1 + n_def + n_med + n_del
+    if total != 11:
+        st.warning(f"La suma es {total}/11. Ajusta las líneas para completar el equipo.")
 
-    def best_player_for_role_rfef(role_scores, role, used_players):
-        if role not in role_scores:
-            return "—"
-        df = role_scores[role]
-        df = df[~df["Jugador_ID"].isin(used_players)]
-        if df.empty:
-            return "—"
-        return df.iloc[0]["Jugador_ID"]
+    # ── Calcular slots ────────────────────────────────────────────────
+    def calcular_slots(n_def, n_med, n_del):
+        slots = []
+        lineas = [
+            (1,    "Portero",        8),
+            (n_def,"Defensa",        28),
+            (n_med,"Mediocampista",  52),
+            (n_del,"Delantero",      76),
+        ]
+        idx = 0
+        for n, etiqueta, y in lineas:
+            for i in range(n):
+                x = 50 if n == 1 else 10 + (80 / (n - 1)) * i if n > 1 else 50
+                lbl = etiqueta if n == 1 else f"{etiqueta} {i+1}"
+                slots.append({"id": idx, "label": lbl, "x": x, "y": y})
+                idx += 1
+        return slots
 
-    formacion = st.selectbox("Formación", list(formation_roles.keys()), key="rfef_alin_formacion")
+    SLOTS = calcular_slots(n_def, n_med, n_del)
+    n_slots = len(SLOTS)
 
-    roles_needed = formation_roles[formacion]
-    coords_map   = formation_coords_rfef[formacion]
+    # ── Session state ─────────────────────────────────────────────────
+    key_slots = f"alin_slots_{n_def}_{n_med}_{n_del}"
+    if key_slots not in st.session_state:
+        st.session_state[key_slots] = {
+            s["id"]: {"rol": None, "jugador": None, "rating": None, "pos_det": None, "equipo": None}
+            for s in SLOTS
+        }
+    if "alin_editing" not in st.session_state:
+        st.session_state["alin_editing"] = None
 
-    # Construir alineación: titular por rol sin repetir jugador
-    used_players = []
-    alineacion   = []   # lista de (rol_display, jugador, side)
+    alin = st.session_state[key_slots]
+    if len(alin) != n_slots:
+        st.session_state[key_slots] = {
+            s["id"]: {"rol": None, "jugador": None, "rating": None, "pos_det": None, "equipo": None}
+            for s in SLOTS
+        }
+        alin = st.session_state[key_slots]
 
-    for rol, cantidad in roles_needed.items():
-        for i in range(cantidad):
-            side = None
-            if cantidad == 2:
-                side = "left" if i == 0 else "right"
-            rol_display = f"{rol} {i+1}" if cantidad > 1 else rol
-            jugador = best_player_for_role_rfef(role_scores, rol, used_players)
-            if jugador != "—":
-                used_players.append(jugador)
-            alineacion.append((rol_display, jugador, side))
+    # ── Botón reset + info ────────────────────────────────────────────
+    col_r, col_i = st.columns([1, 5])
+    with col_r:
+        if st.button("🔄 Limpiar", key="alin_reset"):
+            st.session_state[key_slots] = {
+                s["id"]: {"rol": None, "jugador": None, "rating": None, "pos_det": None, "equipo": None}
+                for s in SLOTS
+            }
+            st.session_state["alin_editing"] = None
+            st.rerun()
+    with col_i:
+        ocupadas = sum(1 for v in alin.values() if v["jugador"])
+        st.caption(f"{ocupadas}/{n_slots} posiciones cubiertas  ·  Formación: 1-{n_def}-{n_med}-{n_del}")
 
-    # ----------------------------------------------------------
-    # Dibujar campo
-    # ----------------------------------------------------------
+    editing_id = st.session_state.get("alin_editing")
+
+    # ── Botones de selección de posición (ARRIBA del campo) ───────────
+    st.markdown("**Selecciona una posición:**")
+    n_cols = min(n_slots, 6)
+    btn_cols = st.columns(n_cols)
+    for i, s in enumerate(SLOTS):
+        sid   = s["id"]
+        datos = alin[sid]
+        lbl   = datos["jugador"].split(" (")[0][:12] if datos["jugador"] else s["label"]
+        pref  = "🟡 " if editing_id == sid else ("✓ " if datos["jugador"] else "")
+        with btn_cols[i % n_cols]:
+            if st.button(f"{pref}{lbl}", key=f"alin_btn_{sid}", use_container_width=True):
+                st.session_state["alin_editing"] = None if editing_id == sid else sid
+                st.rerun()
+
+    # ── Panel de selección (cuando hay posición activa) ───────────────
+    if editing_id is not None and editing_id in alin:
+        s_info  = next(s for s in SLOTS if s["id"] == editing_id)
+        datos_s = alin[editing_id]
+
+        with st.container():
+            st.divider()
+            col_rol, col_top3 = st.columns([1, 2])
+
+            with col_rol:
+                st.markdown(f"**{s_info['label']}**")
+                if datos_s["jugador"]:
+                    st.caption(f"Actual: {datos_s['jugador'].split(' (')[0]}")
+                    if st.button("✕ Quitar", key="alin_quitar"):
+                        st.session_state[key_slots][editing_id] = {"rol": None, "jugador": None, "rating": None, "pos_det": None, "equipo": None}
+                        st.rerun()
+
+                rol_opts    = ["— Elige un rol —"] + list(pesos_roles.keys())
+                idx_default = 0
+                if datos_s["rol"] and datos_s["rol"] in pesos_roles:
+                    idx_default = rol_opts.index(datos_s["rol"])
+                rol_sel = st.selectbox("Rol", rol_opts, index=idx_default, key=f"alin_rol_{editing_id}")
+
+            with col_top3:
+                if rol_sel != "— Elige un rol —" and rol_sel in role_scores:
+                    df_rol = role_scores[rol_sel].copy()
+                    usados = [v["jugador"] for k,v in alin.items() if v["jugador"] and k != editing_id]
+                    df_rol = df_rol[~df_rol["Jugador_ID"].isin(usados)]
+                    top3   = df_rol.head(3)
+
+                    if top3.empty:
+                        st.warning("No hay jugadores disponibles.")
+                    else:
+                        st.markdown("**Top 3:**")
+                        cols_top = st.columns(3)
+                        for ci, (_, row) in enumerate(top3.iterrows()):
+                            nombre  = row["Jugador"]
+                            equipo  = row["Equipo"]
+                            rating  = round(float(row["Rating"]), 1)
+                            pos_det = row.get("Posicion_detallada") or row.get("Posicion") or ""
+                            if pd.isna(pos_det): pos_det = ""
+                            es_act  = (datos_s["jugador"] == row["Jugador_ID"])
+                            with cols_top[ci]:
+                                st.markdown(f"**{nombre}**")
+                                st.caption(f"{equipo}  ·  {pos_det}")
+                                st.metric("Rating", f"{rating}")
+                                if st.button(
+                                    "✓" if es_act else "Elegir",
+                                    key=f"alin_pick_{editing_id}_{row['Jugador_ID']}",
+                                    type="primary" if es_act else "secondary",
+                                    use_container_width=True
+                                ):
+                                    st.session_state[key_slots][editing_id] = {
+                                        "rol":     rol_sel,
+                                        "jugador": row["Jugador_ID"],
+                                        "rating":  rating,
+                                        "pos_det": str(pos_det),
+                                        "equipo":  equipo,
+                                    }
+                                    st.session_state["alin_editing"] = None
+                                    st.rerun()
+                elif rol_sel != "— Elige un rol —":
+                    st.warning(f"Sin datos para {rol_sel}.")
+        st.divider()
+
+    # ── Campo HORIZONTAL ─────────────────────────────────────────────
     from matplotlib.patches import Arc, Rectangle, Circle as MCircle
 
-    fig_p, ax_p = plt.subplots(figsize=(8, 13))
-    fig_p.patch.set_facecolor("#1a5c1a")
-    ax_p.set_facecolor("#1a5c1a")
-    lc, lw2 = "white", 2
+    # Campo horizontal: x=largo (0-100), y=ancho (0-60)
+    fig_a, ax_a = plt.subplots(figsize=(13, 8))
+    fig_a.patch.set_facecolor("#1a5c1a")
+    ax_a.set_facecolor("#1a5c1a")
+    lc, lw2 = "white", 1.5
 
-    # Líneas campo
-    ax_p.plot([0,0],[0,100], color=lc, lw=lw2)
-    ax_p.plot([0,100],[100,100], color=lc, lw=lw2)
-    ax_p.plot([100,100],[100,0], color=lc, lw=lw2)
-    ax_p.plot([100,0],[0,0], color=lc, lw=lw2)
-    ax_p.plot([0,100],[50,50], color=lc, lw=lw2)
-    ax_p.add_patch(MCircle((50,50), 9, fill=False, color=lc, lw=lw2))
-    ax_p.plot(50, 50, 'o', color=lc)
-    ax_p.add_patch(Rectangle((30,82), 40, 18, fill=False, ec=lc, lw=lw2))
-    ax_p.add_patch(Rectangle((30,0),  40, 18, fill=False, ec=lc, lw=lw2))
-    ax_p.add_patch(Rectangle((40,94), 20, 6,  fill=False, ec=lc, lw=lw2))
-    ax_p.add_patch(Rectangle((40,0),  20, 6,  fill=False, ec=lc, lw=lw2))
-    ax_p.plot(50, 88, 'o', color=lc); ax_p.plot(50, 12, 'o', color=lc)
-    ax_p.add_patch(Arc((50,84), 14, 14, theta1=200, theta2=340, color=lc, lw=lw2))
-    ax_p.add_patch(Arc((50,16), 14, 14, theta1=20,  theta2=160, color=lc, lw=lw2))
-    for cx, cy, t1, t2 in [(0,0,0,90),(100,0,90,180),(0,100,270,360),(100,100,180,270)]:
-        ax_p.add_patch(Arc((cx,cy), 6, 6, theta1=t1, theta2=t2, color=lc, lw=lw2))
-    ax_p.plot([45,55],[100,100], color=lc, lw=lw2)
-    ax_p.plot([45,55],[0,0], color=lc, lw=lw2)
-    ax_p.set_xlim(0,100); ax_p.set_ylim(0,100); ax_p.axis("off")
+    # Líneas del campo (horizontal: largo en x, ancho en y)
+    ax_a.plot([0,0],   [0,60],  color=lc, lw=lw2)
+    ax_a.plot([0,100], [60,60], color=lc, lw=lw2)
+    ax_a.plot([100,100],[60,0], color=lc, lw=lw2)
+    ax_a.plot([100,0], [0,0],   color=lc, lw=lw2)
+    ax_a.plot([50,50], [0,60],  color=lc, lw=lw2)
+    ax_a.add_patch(MCircle((50,30), 9, fill=False, color=lc, lw=lw2))
+    ax_a.plot(50, 30, "o", color=lc, ms=3)
+    # Área grande izquierda
+    ax_a.add_patch(Rectangle((0, 13.5), 16, 33, fill=False, ec=lc, lw=lw2))
+    # Área grande derecha
+    ax_a.add_patch(Rectangle((84, 13.5), 16, 33, fill=False, ec=lc, lw=lw2))
+    # Área pequeña izquierda
+    ax_a.add_patch(Rectangle((0, 22), 5.5, 16, fill=False, ec=lc, lw=lw2))
+    # Área pequeña derecha
+    ax_a.add_patch(Rectangle((94.5, 22), 5.5, 16, fill=False, ec=lc, lw=lw2))
+    # Puntos de penalti
+    ax_a.plot(11, 30, "o", color=lc, ms=3)
+    ax_a.plot(89, 30, "o", color=lc, ms=3)
+    # Arcos de penalti
+    ax_a.add_patch(Arc((11, 30), 18, 18, theta1=307, theta2=53, color=lc, lw=lw2))
+    ax_a.add_patch(Arc((89, 30), 18, 18, theta1=127, theta2=233, color=lc, lw=lw2))
+    # Esquinas
+    for cx, cy, t1, t2 in [(0,0,0,90),(100,0,90,180),(0,60,270,360),(100,60,180,270)]:
+        ax_a.add_patch(Arc((cx,cy), 3, 3, theta1=t1, theta2=t2, color=lc, lw=lw2))
 
-    # Colocar jugadores: top 3 por rol en cada posición
-    role_counter = {}
-    for rol_display, jugador, side in alineacion:
-        rol_base = rol_display.rsplit(" ", 1)[0] if rol_display[-1].isdigit() else rol_display
-        role_counter[rol_base] = role_counter.get(rol_base, 0)
+    # Dibujar jugadores — convertir coordenadas (x=0-100 vertical, y=0-100 campo)
+    # al sistema horizontal (campo_x = slot_y, campo_y = (100-slot_x)*0.6)
+    for s in SLOTS:
+        sid  = s["id"]
+        # Convertir: slot_y (0-100, portero=8 arriba) → campo_x (0-100, portero=8 izq)
+        # slot_x (0-100, centro=50) → campo_y (0-60, centro=30)
+        cx = s["y"]           # y del slot → x del campo horizontal
+        cy = s["x"] * 0.60   # x del slot → y del campo horizontal (escalado a 60)
+        datos = alin[sid]
+        es_ed = (editing_id == sid)
 
-        coord = coords_map.get(rol_base)
-        if coord is None:
-            role_counter[rol_base] += 1
-            continue
-
-        if isinstance(coord, list):
-            if role_counter[rol_base] < len(coord):
-                x, y = coord[role_counter[rol_base]]
-            else:
-                role_counter[rol_base] += 1
-                continue
+        if datos["jugador"]:
+            fc = "#f39c12" if es_ed else "#2c3e50"
+            ec = "#f1c40f" if es_ed else "white"
+            ax_a.add_patch(plt.Rectangle(
+                (cx - 6, cy - 4), 12, 8,
+                facecolor=fc, edgecolor=ec, lw=1.2,
+                transform=ax_a.transData, clip_on=False, zorder=3,
+                joinstyle="round"
+            ))
+            nombre = datos["jugador"].split(" (")[0]
+            if len(nombre) > 13: nombre = nombre[:12] + "."
+            ax_a.text(cx, cy+1.5, nombre, ha="center", va="center",
+                      fontsize=6.5, color="white", fontweight="bold", zorder=4)
+            ax_a.text(cx, cy-0.5, datos.get("pos_det") or "", ha="center", va="center",
+                      fontsize=5.5, color="#cccccc", zorder=4)
+            ax_a.text(cx, cy-2.5, f"★{datos['rating']}" if datos["rating"] else "",
+                      ha="center", va="center", fontsize=6, color="#f1c40f", zorder=4)
         else:
-            x, y = coord
+            fc    = "#f39c12" if es_ed else "#ffffff"
+            alpha = 1.0 if es_ed else 0.15
+            ax_a.add_patch(plt.Circle(
+                (cx, cy), 4,
+                facecolor=fc, edgecolor="white", lw=1,
+                alpha=alpha, transform=ax_a.transData, zorder=3
+            ))
+            lbl_corto = s["label"].replace("Mediocampista","MC").replace("Delantero","Del").replace("Defensa","Def")
+            ax_a.text(cx, cy+0.4, lbl_corto, ha="center", va="center",
+                      fontsize=6, color="white", zorder=4)
 
-        role_counter[rol_base] += 1
+    ax_a.set_xlim(0, 100)
+    ax_a.set_ylim(0, 60)
+    ax_a.axis("off")
+    plt.tight_layout(pad=0.3)
+    st.pyplot(fig_a)
+    plt.close(fig_a)
 
-        # Top 3 de ese rol
-        df_rol = role_scores.get(rol_base)
-        if df_rol is None or df_rol.empty:
-            continue
-
-        top3 = df_rol.head(3)
-        label_lines = [rol_base.replace("_", " ")]
-        for idx, (_, row) in enumerate(top3.iterrows(), 1):
-            label_lines.append(f"{idx}. {row['Jugador']} ({row['Rating']})")
-
-        ax_p.text(x, y, "\n".join(label_lines),
-                  ha="center", va="center", fontsize=7, linespacing=1.35,
-                  color="black", fontweight="bold",
-                  bbox=dict(facecolor="white", alpha=0.88,
-                            boxstyle="round,pad=0.4",
-                            edgecolor="#333333", linewidth=1.2))
-
-    st.pyplot(fig_p)
-
-    # Lista debajo
+    # ── Resumen ───────────────────────────────────────────────────────
     st.divider()
-    st.markdown("**Alineación titular**")
-    for rol_display, jugador, _ in alineacion:
-        rol_base = rol_display.rsplit(" ", 1)[0] if rol_display[-1].isdigit() else rol_display
-        df_rol = role_scores.get(rol_base)
-        if df_rol is not None and not df_rol.empty:
-            top3 = df_rol.head(3)
-            alts = " · ".join(
-                f"{i+1}. {r['Jugador']} ({r['Rating']})"
-                for i, (_, r) in enumerate(top3.iterrows())
-            )
-            st.write(f"**{rol_display.replace('_',' ')}** → {alts}")
-        else:
-            st.write(f"**{rol_display.replace('_',' ')}** → —")
-
+    ocupados = [(s, alin[s["id"]]) for s in SLOTS if alin[s["id"]]["jugador"]]
+    if ocupados:
+        st.markdown(f"**Alineación 1-{n_def}-{n_med}-{n_del}:**")
+        cols_l = st.columns(4)
+        for i, (s, datos) in enumerate(ocupados):
+            with cols_l[i % 4]:
+                st.markdown(f"**{s['label']}** — {datos['jugador'].split(' (')[0]}")
+                st.caption(f"{(datos['rol'] or '').replace('_',' ')}  ·  ★ {datos['rating']}")
 
 with tab4:
     st.subheader("Percentiles por Jugador")
     if role_scores:
-        sel_p = st.selectbox("Jugador", sorted(players["Jugador_ID"].unique().tolist()), index=None, placeholder="Elige un jugador...", key="rfef_pct_player")
+        _df_pct_pool = filtros_tab(players, "pct", mostrar_pos=True, mostrar_pie=True, mostrar_edad=True, mostrar_equipo=False)
+        sel_p = st.selectbox("Jugador", sorted(_df_pct_pool["Jugador_ID"].unique().tolist()), index=None, placeholder="Elige un jugador...", key="rfef_pct_player")
         sel_r = st.selectbox("Rol", list(role_scores.keys()), index=None, placeholder="Elige un rol...", key="rfef_pct_role")
         if sel_p and sel_r:
             df_pct = player_percentiles(players, sel_p, sel_r)
@@ -1047,7 +1118,10 @@ with tab5:
     if role_scores:
         sel_r = st.selectbox("Rol", list(role_scores.keys()), index=None, placeholder="Elige un rol...", key="rfef_comp_role")
         if sel_r:
-            j_sel = st.multiselect("Jugadores", role_scores[sel_r]["Jugador_ID"].tolist(), max_selections=6, placeholder="Elige jugadores...")
+            st.markdown("**Filtrar pool de jugadores:**")
+            _df_comp_pool = role_scores[sel_r].copy()
+            _df_comp_pool = filtros_tab(_df_comp_pool, "comp", mostrar_pos=False, mostrar_pie=True, mostrar_edad=True, mostrar_equipo=True)
+            j_sel = st.multiselect("Jugadores", _df_comp_pool["Jugador_ID"].tolist(), max_selections=6, placeholder="Elige jugadores...")
             if len(j_sel) >= 2:
                 df_comp = role_scores[sel_r][role_scores[sel_r]["Jugador_ID"].isin(j_sel)].copy()
                 metrics = [m for m in pesos_roles[sel_r] if f"{m}_pct" in df_comp.columns]
@@ -1155,6 +1229,29 @@ with tab5:
                     plt.tight_layout()
                     st.pyplot(fig_h, use_container_width=True)
                     plt.close(fig_h)
+
+                    # ── Tabla de valores reales ──────────────────────
+                    st.markdown("### Valores reales por métrica")
+                    # Construir tabla con métricas como filas y jugadores como columnas
+                    tabla_rows = []
+                    for m in metrics:
+                        fila = {"Métrica": m.replace("/90","").replace("_"," ")}
+                        for jid in j_sel:
+                            row_t = df_comp[df_comp["Jugador_ID"] == jid]
+                            if row_t.empty:
+                                fila[row_t.iloc[0]["Jugador"] if not row_t.empty else jid] = "-"
+                                continue
+                            nombre_t = row_t.iloc[0]["Jugador"]
+                            val_real = row_t.iloc[0].get(m, None)
+                            pct_val  = row_t.iloc[0].get(f"{m}_pct", None)
+                            if val_real is not None and not pd.isna(val_real):
+                                val_str = f"{float(str(val_real).replace(',','.')):.2f}".rstrip('0').rstrip('.')
+                                fila[nombre_t] = val_str
+                            else:
+                                fila[nombre_t] = "-"
+                        tabla_rows.append(fila)
+                    df_tabla = pd.DataFrame(tabla_rows).set_index("Métrica")
+                    st.dataframe(df_tabla, use_container_width=True)
             else:
                 st.info("Selecciona mínimo 2 jugadores.")
 
@@ -1189,10 +1286,28 @@ with tab7:
 with tab8:
     st.subheader("🔎 Jugadores Similares")
     if role_scores:
-        sel_p = st.selectbox("Jugador", sorted(players["Jugador_ID"].unique().tolist()), index=None, placeholder="Elige un jugador...", key="rfef_sim_player")
-        sel_r = st.selectbox("Rol", list(role_scores.keys()), index=None, placeholder="Elige un rol...", key="rfef_sim_role")
+        col_sim1, col_sim2 = st.columns(2)
+        with col_sim1:
+            sel_p = st.selectbox("Jugador", sorted(players["Jugador_ID"].unique().tolist()), index=None, placeholder="Elige un jugador...", key="rfef_sim_player")
+        with col_sim2:
+            sel_r = st.selectbox("Rol", list(role_scores.keys()), index=None, placeholder="Elige un rol...", key="rfef_sim_role")
+        # Filtros de edad y pie — se aplican SOLO a los candidatos, nunca al referente
+        st.markdown("**Filtrar resultados:**")
+        players_sim_filtrado = filtros_tab(players, "sim", mostrar_pos=False, mostrar_pie=True, mostrar_edad=True, mostrar_equipo=False)
+        # Asegurar que el jugador referente siempre está en el pool aunque no pase el filtro
+        if sel_p:
+            ref_row_sim = players[players["Jugador_ID"] == sel_p]
+            players_sim_pool = pd.concat([players_sim_filtrado, ref_row_sim]).drop_duplicates(subset=["Jugador_ID"])
+        else:
+            players_sim_pool = players_sim_filtrado
         if sel_p and sel_r:
-            sim_df = find_similar_players(players, sel_r, sel_p, min_minutes, top_n=6)
+            sim_df = find_similar_players(players_sim_pool, sel_r, sel_p, min_minutes, top_n=6)
+            # Filtrar resultados por el pool filtrado (edad/pie), excluyendo el referente
+            if not sim_df.empty and "Jugador" in sim_df.columns:
+                ids_filtrados = set(players_sim_filtrado["Jugador_ID"].tolist())
+                sim_df = sim_df[sim_df.apply(
+                    lambda r: (r["Jugador"] + " (" + r["Equipo"] + ")") in ids_filtrados, axis=1
+                )]
             if not sim_df.empty:
                 # Añadir datos extra
                 sim_df2 = sim_df.merge(
@@ -1474,7 +1589,10 @@ with tab10:
 
             nombre    = row_j["Jugador"]
             equipo    = row_j["Equipo"]
-            posicion  = row_j.get("Posicion", row_j.get("Pos_primary", "?"))
+            posicion  = (
+                str(row_j.get("Posicion_detallada", "") or "").strip()
+                or row_j.get("Posicion", row_j.get("Pos_primary", "?"))
+            )
             minutos   = int(row_j["Minutos jugados"])
             partidos  = int(row_j.get("Partidos", max(1, minutos // 90)))
             goles     = round(float(row_j.get("Goles/90", 0) or 0) * minutos / 90, 1)
@@ -1519,21 +1637,26 @@ with tab10:
 
             def desc_rol(rol):
                 d = {
-                    "Portero":             "portero clasico, valorado por su seguridad bajo palos",
-                    "Portero_Avanzado":    "portero con buen juego de pies y participacion en la construccion",
+                    "Portero_Clasico":         "portero clasico, seguridad bajo palos y buen juego aereo",
+                    "Portero_Moderno":    "portero con buen juego de pies y participacion en la construccion",
                     "Lateral_Defensivo":   "lateral con perfil defensivo y solidez en el uno contra uno",
                     "Lateral_Ofensivo":    "lateral ofensivo con proyeccion hacia el ataque",
                     "Central_Stopper":     "central fisico y dominador del juego aereo",
                     "Central_Clasico":     "central equilibrado entre defensa y salida de balon",
                     "Central_Salida":      "central con capacidad para iniciar el juego desde atras",
                     "Pivote_Defensivo":    "pivote con perfil defensivo, recuperador de balones",
-                    "Interior":            "interior con llegada al area y buen juego entre lineas",
+                    "Interior_Mediapunta":            "interior con llegada al area y buen juego entre lineas",
                     "Box_to_Box":          "mediocentro total, capaz de cubrir todo el campo",
-                    "Mediapunta":          "mediapunta creativo, enlace entre lineas",
+                    "Interior_Mediapunta":          "mediapunta creativo, enlace entre lineas",
                     "Extremo_Asociativo":  "extremo asociativo, con participacion en combinaciones y asistencias",
                     "Extremo_Puro":        "extremo desequilibrante, con velocidad y regate",
                     "Delantero_Goleador":  "delantero goleador, referencia ofensiva del equipo",
-                    "Delantero_Movil":     "delantero movil, con participacion en el juego combinativo",
+                    "Delantero_Movil":         "delantero movil, con participacion en el juego combinativo",
+                    "Segundo_Delantero":       "delantero fisico, gana duelos aereos y retiene el balon",
+                    "Carrilero":               "carrilero que sube y baja con impacto ofensivo y defensivo",
+                    "Mediocentro_Org":         "mediocentro organizador, domina el juego posicional",
+                    "Interior_Banda":          "interior de banda que corta hacia dentro y busca el remate",
+                    "Portero_Moderno":         "portero moderno, con mucho juego de pies y salidas al area",
                 }
                 return d.get(rol, rol.replace("_"," "))
 
