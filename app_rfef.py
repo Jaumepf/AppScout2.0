@@ -1,4 +1,5 @@
 import streamlit as st
+import contextlib
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -482,6 +483,7 @@ def percentile_normalization(data, metrics):
         df[metric] = df[metric].clip(0, 1)
     return df
 
+@st.cache_data(show_spinner=False)
 def compute_percentiles(players, min_minutes_base=450):
     players = players.copy()
     for rol, weights in pesos_roles.items():
@@ -510,6 +512,7 @@ def compute_percentiles(players, min_minutes_base=450):
             players.loc[idx_all, f"{metric}_pct"] = players.loc[idx_all, metric].apply(to_pct)
     return players
 
+@st.cache_data(show_spinner=False)
 def compute_role_scores(players, min_minutes):
     role_scores = {}
     for rol, weights in pesos_roles.items():
@@ -572,6 +575,7 @@ def pos_display(row):
         return str(pd_val).strip()
     return row.get("Posicion", "")
 
+@st.cache_data(show_spinner=False)
 def find_similar_players(players, role, player_name, min_minutes, top_n=5):
     df = players[players["Minutos jugados"] >= min_minutes].copy()
     allowed = rol_pos_map.get(role, [])
@@ -755,24 +759,30 @@ if "liga" in players_master.columns:
         if ligas_sel:
             players_master = players_master[players_master["liga"].isin(ligas_sel)]
 
-players_master = compute_percentiles(players_master, min_minutes_base=450)
+# Percentiles siempre sobre el master completo (independiente del slider)
+with st.spinner("Calculando percentiles...") if "players_master_pct" not in st.session_state else contextlib.nullcontext():
+    players_master = compute_percentiles(players_master, min_minutes_base=450)
 pct_cols = [c for c in players_master.columns if c.endswith("_pct")]
 
 min_minutes = st.sidebar.slider("Minutos mínimos", 0, int(players_master["Minutos jugados"].max()), 450)
 
-# players_master ya tiene percentiles calculados — players es la vista base (min minutos)
+# Filtrar por minutos (operación ligera, sin recalcular percentiles)
 players = players_master[players_master["Minutos jugados"] >= min_minutes].copy()
 
 # Calcular edad una sola vez sobre players_master para uso en tabs
 from datetime import datetime as _dt
-def _calc_edad(fn):
-    if pd.isna(fn): return None
-    for fmt in ["%d/%m/%Y", "%Y-%m-%d"]:
-        try: return (_dt.now() - _dt.strptime(str(fn), fmt)).days // 365
-        except: pass
-    return None
+@st.cache_data(show_spinner=False)
+def calc_edades(fechas_series):
+    def _edad(fn):
+        if pd.isna(fn): return None
+        for fmt in ["%d/%m/%Y", "%Y-%m-%d"]:
+            try: return (_dt.now() - _dt.strptime(str(fn), fmt)).days // 365
+            except: pass
+        return None
+    return fechas_series.apply(_edad)
+
 if "Fecha_nacimiento" in players.columns:
-    players["_edad"] = players["Fecha_nacimiento"].apply(_calc_edad)
+    players["_edad"] = calc_edades(players["Fecha_nacimiento"])
 else:
     players["_edad"] = None
 
@@ -781,7 +791,7 @@ role_scores = compute_role_scores(players, min_minutes)
 # ── Helper: filtros locales por tab ─────────────────────────────────────────
 def filtros_tab(df, key_prefix, mostrar_pos=True, mostrar_pie=True, mostrar_edad=True, mostrar_equipo=False):
     """Aplica filtros locales de posición, pie, edad y equipo. Devuelve df filtrado."""
-    resultado = df.copy()
+    resultado = df  # no copiar hasta que haya filtro real
     cols = st.columns(4 if mostrar_equipo else 3)
     ci = 0
     # Posición
